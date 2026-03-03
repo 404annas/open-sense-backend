@@ -2,8 +2,7 @@
   "functions": {
     "api/**/*.js": {
       "maxDuration": 60,
-      "memory": 1024,
-      "size": "50mb"
+      "memory": 1024
     }
   },
   "headers": [
