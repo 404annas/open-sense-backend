@@ -30,6 +30,10 @@ const ProjectSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
     }],
+    displayOrder: {
+        type: Number,
+        default: 0,
+    },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -40,6 +44,7 @@ const ProjectSchema = new mongoose.Schema({
 // Compound indexes for common query patterns
 ProjectSchema.index({ categories: 1, createdAt: -1 }); // For category + sort queries
 ProjectSchema.index({ createdAt: -1 }); // For default sorting
+ProjectSchema.index({ displayOrder: 1 }); // For manual ordering
 ProjectSchema.index({ name: 'text', description: 'text' }); // Text search
 
 module.exports = mongoose.model('Project', ProjectSchema);

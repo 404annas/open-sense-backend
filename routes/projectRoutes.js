@@ -1,6 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const { getProjects, getProjectById, createProject, deleteProject, updateProject } = require('../controllers/projectController');
+const {
+  getProjects,
+  getProjectById,
+  createProject,
+  deleteProject,
+  updateProject,
+  reorderProjects,
+} = require('../controllers/projectController');
 const { protect, superAdmin } = require('../middleware/authMiddleware');
 const { handleConditionalImageUpload } = require('../middleware/conditionalImageUpload');
 
@@ -12,6 +19,7 @@ router.get('/:id', getProjectById);
 
 // Protected Routes (Only SuperAdmin)
 router.post('/', protect, superAdmin, handleConditionalImageUpload('media', 10), createProject);
+router.put('/reorder', protect, superAdmin, reorderProjects);
 router.delete('/:id', protect, superAdmin, deleteProject);
 router.put('/:id', protect, superAdmin, handleConditionalImageUpload('media', 10), updateProject);
 
