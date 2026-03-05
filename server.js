@@ -38,7 +38,8 @@ connectDB()
                 "https://www.opensenseproductions.com",
                 "https://open-sense-ano.vercel.app",
                 'http://localhost:5174',
-                "https://open-senses.vercel.app"
+                "https://open-senses.vercel.app",
+                "https://open-sense-dashboard.vercel.app"
             ]);
         });
     })
@@ -68,7 +69,8 @@ const allowedOrigins = [
     "https://open-sense-xi.vercel.app",
     "https://open-sense-ano.vercel.app",
     'http://localhost:5174',
-    "https://open-senses.vercel.app"
+    "https://open-senses.vercel.app",
+    "https://open-sense-dashboard.vercel.app"
 ];
 app.use(cors({
     origin: function (origin, callback) {
